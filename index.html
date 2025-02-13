@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff6b81, #ff4757);
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: white;
+            font-size: 4em;
+            margin-top: 50px;
+            text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .music-player {
+            margin-top: 20px;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .button {
+            font-size: 1.4em;
+            padding: 12px 25px;
+            margin: 10px;
+            background: linear-gradient(135deg, #ff9ff3, #f368e0);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background: linear-gradient(135deg, #c56cf0, #9b59b6);
+        }
+
+        .letter, .quiz {
+            display: none;
+            margin-top: 50px;
+            font-size: 1.7em;
+            color: #333;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-gallery {
+            margin-top: 30px;
+        }
+
+        .photo-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Valentine's Day, My Love! ❤️</h1>
+    
+    <div class="countdown" id="countdown"></div>
+    
+    <div class="music-player">
+        <audio autoplay loop>
+            <source src="love_song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="showElement('letter')">Read Love Letter</button>
+        <button class="button" onclick="showElement('quiz')">Take Love Quiz</button>
+    </div>
+
+    <div id="letter" class="letter">
+        <p>My Dearest Love,</p>
+        <p>You are my sunshine, my happiness, and my greatest adventure. Every moment with you is a treasure, and I am forever grateful to have you in my life. I love you more than words can express. Happy Valentine's Day! ❤️</p>
+        <p>Forever yours,</p>
+        <p><strong>Your Love</strong></p>
+    </div>
+
+    <div id="quiz" class="quiz">
+        <p><strong>How well do you know our love?</strong></p>
+        <p>Where did we first meet?</p>
+        <button onclick="checkAnswer('a')">At the park</button>
+        <button onclick="checkAnswer('b')">At a café</button>
+        <button onclick="checkAnswer('c')">At a concert</button>
+        <p id="quiz-result"></p>
+    </div>
+
+    <div class="photo-gallery">
+        <img src="https://www.instagram.com/p/DF4o3xZhLZg/?igsh=YmRudTdlb2ppdXk=" alt="Special Memory 1">
+        <img src="love.jpg" alt="Special Memory 2">
+        <img src="photo3.jpg" alt="Special Memory 3">
+    </div>
+
+    <script>
+        function updateCountdown() {
+            let targetDate = new Date("april 28, 2025 00:00:00").getTime();
+            let now = new Date().getTime();
+            let difference = targetDate - now;
+            
+            let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
+
+        function showElement(id) {
+            let element = document.getElementById(id);
+            element.style.display = "block";
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function checkAnswer(answer) {
+            if (answer === 'b') {
+                document.getElementById("quiz-result").innerText = "Correct! You remember our special moment ❤️";
+            } else {
+                document.getElementById("quiz-result").innerText = "Oops! Try again, my love!";
+            }
+        }
+    </script>
+</body>
+</html>
